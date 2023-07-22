@@ -22,8 +22,9 @@ class ProductCreateView(CreateView):
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
+
     def get_success_url(self):
-        return reverse('catalog:update', args=[self.kwargs.get('pk')])
+        return reverse('catalog:update_product', args=[self.kwargs.get('pk')])
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
